@@ -76,6 +76,15 @@ def main():
             'cc="clang"',
             'cxx="clang++"',
         ]
+    if 'riscv64' == machine:
+        # TODO: use clang on all targets!
+        args += [
+            'skia_gl_standard="gles"',
+            'skia_use_egl=true',
+            'extra_cflags_cc=["-fno-exceptions", "-fno-rtti", "-D_GLIBCXX_USE_CXX11_ABI=0"]',
+            'cc="clang"',
+            'cxx="clang++"',
+        ]
     else:
         args += [
             'extra_cflags_cc=["-fno-exceptions", "-fno-rtti","-D_GLIBCXX_USE_CXX11_ABI=0"]',
